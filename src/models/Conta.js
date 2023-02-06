@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const contaSchema = new mongoose.Schema(
     {
-        id: {type: Number},
+        id_conta: {type: Number},
         nome_conta: {type: String, required: true},
-        usuario: {type: String, required: true},
+        usuario: {type: mongoose.Schema.Types.ObjectId, ref:'usuario', required: true},
         valor: {type:Number, required:true}
     },
     {
