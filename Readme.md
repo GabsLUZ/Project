@@ -22,4 +22,4 @@ Este projeto tem como objetivo a criação de uma aplicação que facilite a ges
 
 [@GabsLuz](https://github.com/GabsLUZ)
 
-[@STER](https://github.com/)
+[@SterMendes](https://github.com/SterMendes)
