@@ -3,8 +3,6 @@
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
@@ -26,13 +24,12 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test -->
-    name: Example workflow for Node using Snyk
 
-name: snyk
-on: push
-jobs:
-  security:
+
+    name: snyk
+    security:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
@@ -40,21 +37,17 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
-name: njsscan
-on:
-  push:
-    branches: [ master, main ]
-  pull_request:
-    branches: [ master, main ]
-jobs:
-  njsscan:
+    name: njsscan
     runs-on: ubuntu-latest
     name: njsscan check
     steps:
-    - name: Checkout the code
-      uses: actions/checkout@v2
-    - name: nodejsscan scan
-      id: njsscan
-      uses: ajinabraham/njsscan-action@master
-      with:
-        args: '.'
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - name: nodejsscan scan
+        id: njsscan
+        uses: gabsLuz/Project-action@master
+        with:
+          args: '.'
+
+
+
