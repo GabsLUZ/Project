@@ -9,12 +9,19 @@ Este projeto tem como objetivo a criação de uma aplicação que facilite a ges
  5. Github
  6. Outros
 
-## Etapas
-
-- [ ] Criação da API REST
+## Etapas de desenvolvimento
+1. Semana 08/02/2023 - 16/02/2023
+- [X] Criação da API REST
 - [ ] Implementação do JWToken
-- [ ] Criação da página de login
-- [ ] Desenvolver pipeline
+- [X] Criação da página de login
+- [X] Desenvolver pipeline (Parcial)
+
+
+2. Semana 16/02/2023 - 23/02/2023
+- [ ] A definir
+- [ ] A definir
+- [ ] A definir
+- [ ] A definir
 
 # Contribuições
 
