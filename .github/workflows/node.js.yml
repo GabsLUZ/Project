@@ -31,13 +31,20 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
-  njsscan:
+  sast-njsscan:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-      - name: nodejsscan scan
-        id: njsscan
-        uses: gabsLuz/Project-action@main
+
+    steps:    
+      - uses: actions/checkout@v2
+    
+      - uses: actions/setup-python@v2
         with:
-          args: '.'
+          python-version: '3.x'    
+
+      - name: njsscan (install dependencies)
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests_html njsscan
+          
+      - name: Execute njsscan
+        run: njsscan .
