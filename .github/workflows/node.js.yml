@@ -23,14 +23,21 @@ jobs:
       - run: npm test
 
   snyk:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+   runs-on: ubuntu-latest
 
+   steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install
+
+      - name: Install and configure SNYK
+        run: sudo npm install -g snyk && snyk auth ${{ secrets.SNYK_TOKEN }}
+
+      - name: snyk scan for lib vulnerabilities (SAST)
+        run: sudo snyk test .
+        
   sast-njsscan:
     runs-on: ubuntu-latest
 
