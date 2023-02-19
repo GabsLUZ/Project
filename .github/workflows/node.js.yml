@@ -38,6 +38,6 @@ jobs:
         uses: actions/checkout@v2
       - name: nodejsscan scan
         id: njsscan
-        uses: gabsLuz/Project-action@master
+        uses: gabsLuz/Project-action@main
         with:
           args: '.'
