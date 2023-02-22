@@ -21,6 +21,13 @@ Este projeto tem como objetivo a criação de uma aplicação que facilite a ges
 - [ ] Criação de teste
 - [ ] Ajustar DAST do pipeline (Falta autenticação SNYK)
 - [ ] Definir frontend
+- [X] Estruturar deploy do projeto
+
+3. Semana 23/02/2023 - 03/03/2023
+- [ ] A definir
+- [ ] A definir
+- [ ] A definir
+- [ ] A definir
 
 # Contribuições
 
