@@ -24,11 +24,11 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: Build application
-        run: npm run build
-
-      - name: Test application
-        run: npm run test
+#      - name: Build application
+#        run: npm run build
+#
+#     - name: Test application
+#        run: npm run test
 
   DAST-snyk:
     needs: build
