@@ -30,7 +30,7 @@ jobs:
       - run: npm install
 
       - name: Install and configure SNYK
-        run: sudo npm install -g snyk && snyk auth ${{secret.9b69279b-7fc1-41ec-92a7-4b889b331cfe}}
+        run: sudo npm install -g snyk && snyk auth ${{ secrets.SNYK_TOKEN }}
 
       - name: snyk scan for lib vulnerabilities (SAST)
         run: sudo snyk test .
