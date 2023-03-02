@@ -1,8 +1,7 @@
-FROM node:alpine
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY package.json /usr/src/app/
+FROM node:18.7.0
+WORKDIR /app
+COPY package.json .
+COPY src/ src/
 RUN npm install
-COPY . /usr/src/app
-EXPOSE 3000
-CMD ["node", "index.js"]
+COPY . .
+CMD ["npm", "start"]
