@@ -29,7 +29,7 @@ function App() {
   };
 
   for (let i=0; i < bancos.length; i++) {
-    if(despesas.filter(despesa => despesa.bancos ===bancos[i].nome_banco).length > 0){
+    if(despesas.filter(despesa => despesa.banco ===bancos[i].nome_banco).length > 0){
       agenciasBanco.push(despesas[i]);
     }
     else {continue;
