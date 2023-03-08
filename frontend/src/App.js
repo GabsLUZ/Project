@@ -1,31 +1,37 @@
-import {useStates} from 'react';
+import {useState} from 'react';
 import Form from './components/Form';
+
 
 function App() {
 
   const ContasBancarias = [
     {
-      nome_banco: 'Brasil',
+      nome_banco: 'Banco do Brasil',
       corPrincipal: '#FFFF00',
       corSegundaria: '#FFD700'
-    }
+    },
   ]
 
-  const [contas, setContas] = useStates[];
+  const [despesas, setDespesas] = useState([]); 
 
-  const NovaConta = (conta) => {
-    console.log(conta)
-    setContas([...contas, conta])
-  }
+  const NovaDespesa = (despesa) => {
+    console.log(despesa)
+    setDespesas([...despesas, despesa])
+  };
 
-    return (
+  return (
     <div className="App">
     <Form
-
-      contas = {ContasBancarias.map((conta) => conta.nome)}
-      DespesaCadastrada = {(despesa) => NovaDespesa(despesa)}
+      despesas = {ContasBancarias.map((despesa) => despesa.nome_banco)}
+      DespesaCadastrado = {(despesa) => NovaDespesa(despesa)}
     />
+    {/* <Category
+    key={despesa.nome_banco}
+    nome={despesa.nome_banco}
+    />
+ */}
     </div>
+
   );
 }
 

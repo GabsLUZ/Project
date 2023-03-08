@@ -1,4 +1,4 @@
-import 'index.css'
+import './index.css'
 
 const InputText = (props) => {
 
@@ -13,7 +13,7 @@ const InputText = (props) => {
             value={props.valor}
             onChange={Digitando}
             required={props.obritario}
-            placeholder={placeholder}
+            placeholder={props.placeholder}
             />
         </div>
     )
