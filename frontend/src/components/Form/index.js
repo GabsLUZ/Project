@@ -1,19 +1,24 @@
 import './index.css';
 import { useState} from 'react';
 import InputText from '../InputText';
+import Button from '../button';
+import Dropdown from '../DropDown';
+
 
 const Form = (props) => {
 
     const [descricao, setTitulo] = useState('')
     const [valor, setValor] = useState('')
     const [contaPaga, setContapaga] = useState('')
+    const [banco, setBanco] = useState('')
   
     const Salvar = (evento) => {
        evento.preventDefault()
-       props.DespesaCadastrado({
+       props.DespesaCadastrada({
         descricao,
         valor,
-        contaPaga
+        contaPaga,
+        banco
        })
     }
 
@@ -42,7 +47,16 @@ const Form = (props) => {
                 valores={contaPaga}
                 Alterado={valores => setContapaga(valores)}
                 />
-                
+                <Dropdown
+                obrigatorio={true}
+                label="Banco"
+                itens={props.bancos}
+                valores={banco}
+                Alterado={valores => setBanco(valores)}
+                />
+                <Button>
+                Adicionar Despesa    
+                </Button>                
                 
             </form>
         </section>
