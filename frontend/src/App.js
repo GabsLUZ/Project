@@ -29,7 +29,7 @@ function App() {
   };
 
   for (let i=0; i < bancos.length; i++) {
-    if(despesas.filter(despesa => despesa.banco ===bancos[i].nome_banco).length > 0){
+    if(despesas.filter(despesa => despesa.banco === bancos[i].nome_banco).length > 0){
       agenciasBanco.push(despesas[i]);
     }
     else {continue;
@@ -43,10 +43,11 @@ function App() {
       bancos = {bancos.map((banco) => banco.nome_banco)}
       DespesaCadastrada = {(despesa) => NovaDespesa(despesa)}
     />
-    {agenciasBanco.map((banco) => (
+
+    {bancos.map((banco) => (
       <Category
       key={banco.nome_banco}
-      nome={banco.nome_banco}
+      nome_agencia={banco.nome_banco}
       corPrincipal={banco.corPrincipal}
       corSegundaria={banco.corSegundaria}
       despesas={despesas.filter((despesa) => despesa.banco === banco.nome_banco)}      

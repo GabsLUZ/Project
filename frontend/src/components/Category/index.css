@@ -1,0 +1,21 @@
+.agencias{
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+    text-align: center;
+    padding: 32px;
+}
+
+.agencias h3{
+    font-size: 32px;
+    border-bottom: 4px solid;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.agencias .contas {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}

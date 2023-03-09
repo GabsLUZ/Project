@@ -3,11 +3,11 @@ import './index.css'
 
 const Category = (props) => {
     return (
-        <section className='ContasBancarias' 
+        <section className='agencias' 
         style={{backgroundColor:props.corSegundaria}}
         >
-            <h3 style={{borderColor: props.corPrimaria}}>{props.nome_conta}</h3>
-            <div className="despesas">
+            <h3 style={{borderColor: props.corPrimaria}}>{props.nome_agencia}</h3>
+            <div className="contas">
                 {props.despesas.map((despesa) => (
                  <Despesa valor={despesa.valor} descricao={despesa.descricao} numero={despesa.numero} />
              ))}
