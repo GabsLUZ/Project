@@ -1,4 +1,4 @@
-name: Node.js CI/CD
+name: Node.js CI/CD 
 
 on:
   push:
@@ -6,77 +6,72 @@ on:
       - main
 
 jobs:
-  build:
+  teste-unit:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Install Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      
-      - name: Start containers
-        run: docker-compose -f "docker-compose.yml" up
+      - uses: actions/checkout@v2
+      - name: Inicia container
+        run: docker-compose up -d
 
-      - name: Run tests
-        run: docker container exec app npm test
-
-  DAST-snyk:
-    needs: build
+  SAST-snyk-dependencies:
+    needs: teste-unit
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
           cache: 'npm'
-      
       - name: Install and configure SNYK
         run: |
           npm install -g snyk
           snyk auth ${{ secrets.SNYK_TOKEN }}
-
       - name: Run SAST scan for lib vulnerabilities
         run: snyk test .
 
-  SAST-njsscan:
-    needs: build
+  SAST-njsscan-patterns:
+    needs: teste-unit
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
       - name: Install Python 3.x
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests_html njsscan
-      
       - name: Run NJSScan
         run: njsscan .
-  
-  deploy:
-    needs: [DAST-snyk, SAST-njsscan]
+
+  DAST-SOOS:
+    needs: teste-unit
+    name: SOOS DAST Baseline Analysis
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Install dependencies
-        run: npm install
+      - name: Run SOOS DAST Baseline Analysis
+        uses: soos-io/soos-dast-github-action@v1.2.5
+        with:
+          client_id: ${{ secrets.SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.SOOS_API_KEY }}
+          project_name: "DevSecOps"
+          scan_mode: "baseline"
+          target_url: "https://dwtwut-3000.csb.app/"
 
-      - name: Deploy to production
-        run: npm run deploy
+  deploy-:
+    needs: [teste-unit, SAST-njsscan-patterns, DAST-SOOS, SAST-snyk-dependencies]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and Push Docker Image
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: c4st4nha/projetosrc
+          tag: latest
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
