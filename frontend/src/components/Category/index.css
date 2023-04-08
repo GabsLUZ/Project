@@ -1,5 +1,5 @@
 .agencias{
-    display: flex;
+    display: grid;
     justify-content: center;
     margin-top: 75px;
     text-align: center;

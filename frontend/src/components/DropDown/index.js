@@ -1,7 +1,6 @@
 import './index.css'
 
 const Dropdown = (props) => {
-    console.log(props.itens)
     return(
         <div className='lista-suspensa'>
             <label>{props.label}</label>

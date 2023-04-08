@@ -8,7 +8,7 @@ import usuarios from "./usuarioRoutes.js"
 
 const routes = (app) => {
     app.route('/').get((req, res) => {
-        res.status(200).send({titulo: "Aula de node"});
+        res.status(200).send({titulo: "Auxiliar Finanças"});
     }) 
 
     app.use(

@@ -1,23 +1,22 @@
 import './index.css'
 
 const InputText = (props) => {
+   
+   const Digitado = (evento) => {
+      props.Alterado(evento.target.value)
+   }
 
-    const Digitando = (evento) => {
-        props.Alterado(evento.target.value)
-    }
-
-    return (
-        <div className="campo_texto">
-            <label>{props.label}</label>
-            <input
+   return (
+     <div className="campo_texto">
+        <label>{props.label}</label>
+        <input
             value={props.valor}
-            onChange={Digitando}
-            required={props.obritario}
+            onChange={Digitado} 
+            required={props.obrigatorio} 
             placeholder={props.placeholder}
-            />
-        </div>
-    )
-
+        />
+     </div>
+   )
 }
 
 export default InputText

@@ -2,23 +2,10 @@ import {useState} from 'react';
 import Category from './components/Category';
 import Form from './components/Form';
 import Nav from './components/image';
-
+import bancos from './banco';
 
 function App() {
-
-  const bancos = [
-    {
-      nome_banco: 'Banco do Brasil',
-      corPrincipal: '#FFFF00',
-      corSegundaria: '#FFD700'
-    },
-    {
-      nome_banco: 'Nubank',
-      corPrincipal: '#9400D3',
-      corSegundaria: '#EE82EE'
-    },
-  ]
-
+  
   let agenciasBanco = [];
 
   const [despesas, setDespesas] = useState([]); 
@@ -46,9 +33,9 @@ function App() {
 
     {bancos.map((banco) => (
       <Category
-      key={banco.nome_banco}
+      key = {banco.nome_banco}
       nome_agencia={banco.nome_banco}
-      corPrincipal={banco.corPrincipal}
+      corPrimaria={banco.corPrimaria}
       corSegundaria={banco.corSegundaria}
       despesas={despesas.filter((despesa) => despesa.banco === banco.nome_banco)}      
       />

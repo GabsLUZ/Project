@@ -1,0 +1,31 @@
+.conta{
+    width: 240px;
+    padding: 10px;
+}
+
+.conta .cabecalho {
+    background-color:  #F0F0F0;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.conta .rodape {
+    background: #FFFFFF;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 20px 20px 20px 20px;
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+
+.conta .rodape h4 {
+    color: #f76262;
+    font-size: 28px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+.conta .rodape h2 {
+    font-size: 25px;
+    line-height: 22px;
+    color: #212121;
+    padding: 0 16px;
+}

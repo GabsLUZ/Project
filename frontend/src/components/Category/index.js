@@ -8,8 +8,12 @@ const Category = (props) => {
         >
             <h3 style={{borderColor: props.corPrimaria}}>{props.nome_agencia}</h3>
             <div className="contas">
-                {props.despesas.map((despesa) => (
-                 <Despesa valor={despesa.valor} descricao={despesa.descricao} numero={despesa.numero} />
+                {props.despesas.map((despesa) => 
+                (
+                 <Despesa 
+                 descricao={despesa.descricao} 
+                 valor={despesa.valor} 
+                 contaPaga={despesa.contaPaga} />
              ))}
             </div>
         </section>
