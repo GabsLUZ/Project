@@ -1,6 +1,6 @@
 .NovaDespesa{
     display: flex;
-    justify-content: right;
+    justify-content: center;
     margin: 70px 20px;
 }
 
@@ -9,5 +9,23 @@
     max-width: 80%;
     background-color: #ffffff;
     padding: 20px 64px;
+}
+
+.botoes{
+    width: 100%;
+    display: flex;
+}
+
+.totalDespesa{
+    display: flex;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 32px;
+    border: none;
+    cursor: pointer;
+    color: black;
+    margin: 32px 0;
+    justify-content: flex-end;
 }
 

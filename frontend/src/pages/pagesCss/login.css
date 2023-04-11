@@ -1,0 +1,29 @@
+.confirm{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.botaoLogin{
+    background-color: #6278f7;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 32px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin: 32px 0;
+}
+
+.botaoLogin:hover {
+    color: #95FFD4
+}
+
+.infoCadastro{
+    margin-top: 3%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

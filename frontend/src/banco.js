@@ -1,4 +1,7 @@
-const bancos = [
+let bancos = [
+    {
+      nome_banco: "Selecione um banco"
+    },
     {
       nome_banco: 'Nubank',
       corPrimaria: '#9400D3',

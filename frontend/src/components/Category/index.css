@@ -19,3 +19,15 @@
     margin-top: 32px;
     flex-wrap: wrap;
 }
+
+.botaoDelete{
+    background-color: rgb(187, 0, 0);
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin: 32px 0;
+}

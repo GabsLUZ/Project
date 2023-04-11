@@ -8,7 +8,7 @@ const Despesa = (props) => {
             </div>
             <div className='rodape'>
                 <h2>{props.descricao}</h2>
-                <h4>{props.valor}</h4>
+                <h4>R$ {props.valor}</h4>
             </div>
         </div>
     )
